@@ -86,7 +86,7 @@ export default function Home({ restaurant, thingToDo, hotel }) {
 }
 
 export async function getServerSideProps() {
-  let restaurant =await getItem(prisma, "restaurant");
+  let restaurant = await getItem(prisma, "restaurant");
   restaurant = JSON.parse(JSON.stringify(restaurant));
 
   let thingToDo =await getItem(prisma, "thing-to-do");

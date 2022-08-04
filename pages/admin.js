@@ -76,6 +76,7 @@ export default function Admin() {
                 className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                 onChange={(e) => setType(e.target.value)}
               >
+                  <option value="">select type</option>
                 <option value="restaurant">Restaurant</option>
                 <option value="hotel">Hotel</option>
                 <option value="thing-to-do">Thing to do</option>
