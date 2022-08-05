@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Header from "./components/Header";
 import { getItem } from "lib/data ";
 import prisma from "lib/prisma";
+import Link from "next/link";
 
 export default function Home({ restaurant, thingToDo, hotel }) {
   const { data: session, status } = useSession();
@@ -49,33 +50,38 @@ export default function Home({ restaurant, thingToDo, hotel }) {
               <div>
                 <h2 className="mt-10 font-bold">Restaurants</h2>
 
-                <ol className="mt-4 list-inside list-decimal">
+          
                   {restaurant.map((item, index) => (
-                    <li key={index}>{item.name}</li>
+                    <Link href={`/${item.id}`} key={index}>
+                    <a className="cursor-pointer block" >{item.name}</a>
+                    </Link>
                   ))}
-                </ol>
+              
               </div>
             )}
               {hotel && (
                 <div>
                   <h2 className="mt-10 font-bold">Hotels</h2>
 
-                  <ol className="mt-4 list-inside list-decimal">
                     {hotel.map((item, index) => (
-                      <li key={index}>{item.name}</li>
+                       <Link href={`/${item.id}`} key={index}>
+                       <a className="cursor-pointer block" >{item.name}</a>
+                       </Link>
                     ))}
-                  </ol>
+                
                 </div>
               )}
               {thingToDo && (
                 <div>
                   <h2 className="mt-10 font-bold">Things to do</h2>
 
-                  <ol className="mt-4 list-inside list-decimal">
+                
                     {thingToDo.map((item, index) => (
-                      <li key={index}>{item.name}</li>
+                        <Link href={`/${item.id}`} key={index}>
+                        <a className="cursor-pointer block" >{item.name}</a>
+                        </Link>
                     ))}
-                  </ol>
+      
                 </div>
               )}
             </div>
